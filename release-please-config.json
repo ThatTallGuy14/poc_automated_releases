@@ -1,4 +1,5 @@
 {
+  "separate-pull-requests": true,
   "packages": {
     "feature_1": {
       "changelog-path": "CHANGELOG.md",
