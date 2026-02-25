@@ -1,12 +1,26 @@
 {
   "packages": {
-    "feature_1": {
+    "ports/feature_1": {
       "changelog-path": "CHANGELOG.md",
-      "release-type": "simple"
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "ports/feature_1/vcpkg.json",
+          "jsonpath": "$.version"
+        }
+      ]
     },
-    "feature_2": {
+    "ports/feature_2": {
       "changelog-path": "CHANGELOG.md",
-      "release-type": "simple"
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "ports/feature_2/vcpkg.json",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   }
 }
