@@ -1,10 +1,10 @@
 {
   "packages": {
     "feature_1": {
-      "changelog-path": "CHANGELOG.md",
+      "changelog-path": "CHANGELOG.md"
     },
     "feature_2": {
-      "changelog-path": "CHANGELOG.md",
+      "changelog-path": "CHANGELOG.md"
     }
   }
 }
