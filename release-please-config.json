@@ -1,10 +1,12 @@
 {
   "packages": {
     "feature_1": {
-      "changelog-path": "CHANGELOG.md"
+      "changelog-path": "CHANGELOG.md",
+      "release_type": "simple"
     },
     "feature_2": {
-      "changelog-path": "CHANGELOG.md"
+      "changelog-path": "CHANGELOG.md",
+      "release_type": "simple"
     }
   }
 }
