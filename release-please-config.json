@@ -21,7 +21,14 @@
       "path": "ports/feature_2",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
-      "component": "feature_2"
+      "component": "feature_2",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "ports/feature_2/vcpkg.json",
+          "jsonpath": "$.version"
+        }
+      ]
     },
     "feature_3": {
       "path": "ports/feature_3",
@@ -31,7 +38,7 @@
       "extra-files": [
         {
           "type": "json",
-          "path": "ports/feature_2/vcpkg.json",
+          "path": "ports/feature_3/vcpkg.json",
           "jsonpath": "$.version"
         }
       ]
