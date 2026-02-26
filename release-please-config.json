@@ -5,22 +5,36 @@
   "tag-separator": "-",
   "packages": {
     "feature_1": {
-      "path": "feature_1",
+      "path": "ports/feature_1",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
-      "component": "feature_1"
+      "component": "feature_1",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "ports/feature_1/vcpkg.json",
+          "jsonpath": "$.version"
+        }
+      ]
     },
     "feature_2": {
-      "path": "feature_2",
+      "path": "ports/feature_2",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
       "component": "feature_2"
     },
     "feature_3": {
-      "path": "feature_3",
+      "path": "ports/feature_3",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
-      "component": "feature_3"
+      "component": "feature_3",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "ports/feature_2/vcpkg.json",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   }
 }
