@@ -2,6 +2,11 @@ name: Update vcpkg Versions
 
 on:
   pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
     paths:
       - "ports/**/vcpkg.json"
 
