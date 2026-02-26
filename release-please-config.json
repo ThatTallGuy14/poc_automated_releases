@@ -15,6 +15,12 @@
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
       "component": "feature_2"
+    },
+    "feature_3": {
+      "path": "feature_3",
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "simple",
+      "component": "feature_3"
     }
   }
 }
