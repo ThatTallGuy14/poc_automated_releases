@@ -45,7 +45,9 @@ jobs:
 
             git add versions
             git commit -m "chore: update vcpkg versions files"
-            git push
+
+            # Push explicitly to the PR branch
+            git push origin HEAD:${{ github.head_ref }}
           else
             echo "No version updates needed."
           fi
