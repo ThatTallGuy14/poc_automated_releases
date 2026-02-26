@@ -1,0 +1,53 @@
+name: Update vcpkg Versions
+
+on:
+  pull_request:
+    paths:
+      - "ports/**/vcpkg.json"
+
+jobs:
+  update-versions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git
+        run: |
+          git fetch origin ${{ github.base_ref }}
+
+      - name: Detect changed ports
+        id: changed_ports
+        run: |
+          CHANGED_PORTS=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
+            | grep '^ports/.*/vcpkg.json' \
+            | cut -d/ -f2 \
+            | sort -u)
+
+          echo "ports=$CHANGED_PORTS" >> $GITHUB_OUTPUT
+
+      - name: Install vcpkg
+        run: |
+          git clone https://github.com/microsoft/vcpkg.git
+          ./vcpkg/bootstrap-vcpkg.sh
+
+      - name: Run x-add-version for changed ports
+        if: steps.changed_ports.outputs.ports != ''
+        run: |
+          for port in ${{ steps.changed_ports.outputs.ports }}; do
+            echo "Updating version for $port"
+            ./vcpkg/vcpkg x-add-version $port
+          done
+
+      - name: Commit updated versions
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git add versions
+            git commit -m "Update vcpkg versions files"
+            git push
+          fi
