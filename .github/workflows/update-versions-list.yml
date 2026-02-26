@@ -2,8 +2,6 @@ name: Update vcpkg Versions
 
 on:
   pull_request:
-    branches:
-      - main
     paths:
       - "ports/**/vcpkg.json"
 
