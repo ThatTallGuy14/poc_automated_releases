@@ -2,13 +2,15 @@
   "separate-pull-requests": true,
   "include-component-in-tag": true,
   "include-v-in-tag": true,
-  "tag-separator": "@",
+  "tag-separator": "-",
   "packages": {
     "feature_1": {
+      "path": "feature_1",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple"
     },
     "feature_2": {
+      "path": "feature_2",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple"
     }
