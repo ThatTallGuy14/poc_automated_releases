@@ -1,0 +1,16 @@
+{
+  "default": {
+    "feature_1": {
+      "baseline": "0.1.0",
+      "port-version": 0
+    },
+    "feature_2": {
+      "baseline": "0",
+      "port-version": 0
+    },
+    "feature_3": {
+      "baseline": "0",
+      "port-version": 0
+    }
+  }
+}
