@@ -1,13 +1,26 @@
 {
+  "separate-pull-requests": true,
+  "include-component-in-tag": true,
+  "include-v-in-tag": true,
+  "tag-separator": "-",
   "packages": {
     "feature_1": {
-      "changelog-path": "CHANGELOG.md",
-      "release-type": "simple"
-    },
-    "feature_2": {
+      "path": "ports/feature_1",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
-
+      "component": "feature_1",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "ports/feature_1/vcpkg.json",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "feature_2": {
+      "path": "ports/feature_2",
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "simple",
       "component": "feature_2",
       "extra-files": [
         {
