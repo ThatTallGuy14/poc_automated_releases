@@ -23,49 +23,29 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch base branch
-        run: git fetch origin ${{ github.base_ref }}
-
-      - name: Detect changed ports
-        id: changed_ports
-        run: |
-          CHANGED_PORTS=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
-            | grep '^ports/.*/vcpkg.json' \
-            | cut -d/ -f2 \
-            | sort -u \
-            | tr '\n' ' ')
-
-          echo "Detected ports: $CHANGED_PORTS"
-          echo "ports=$CHANGED_PORTS" >> "$GITHUB_OUTPUT"
-
       - name: Clone and bootstrap vcpkg
-        if: steps.changed_ports.outputs.ports != ''
         run: |
           git clone https://github.com/microsoft/vcpkg.git
           ./vcpkg/bootstrap-vcpkg.sh
 
-      - name: Run x-add-version for changed ports
-        if: steps.changed_ports.outputs.ports != ''
+      - name: Run x-add-version for all ports
         run: |
-          for port in ${{ steps.changed_ports.outputs.ports }}; do
-            echo "Updating version for $port"
-            ./vcpkg/vcpkg x-add-version $port
-          done
+          ./vcpkg/vcpkg \
+            --x-builtin-ports-root=./ports \
+            --x-builtin-registry-versions-dir=./versions \
+            x-add-version --all --verbose
 
       - name: Commit updated versions files
-        if: steps.changed_ports.outputs.ports != ''
         run: |
           if ! git diff --quiet; then
-            echo "Committing updated versions files..."
+            echo "Committing updated versions..."
 
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
             git add versions
             git commit -m "chore: update vcpkg versions files"
-
-            # Push back to PR branch
             git push
           else
-            echo "No version changes detected."
+            echo "No version updates needed."
           fi
