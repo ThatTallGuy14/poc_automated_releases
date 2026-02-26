@@ -7,12 +7,14 @@
     "feature_1": {
       "path": "feature_1",
       "changelog-path": "CHANGELOG.md",
-      "release-type": "simple"
+      "release-type": "simple",
+      "component": "feature_1"
     },
     "feature_2": {
       "path": "feature_2",
       "changelog-path": "CHANGELOG.md",
-      "release-type": "simple"
+      "release-type": "simple",
+      "component": "feature_2"
     }
   }
 }
