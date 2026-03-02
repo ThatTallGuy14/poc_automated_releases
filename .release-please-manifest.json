@@ -1,5 +1,5 @@
 {
   "ports/feature_1": "0.1.0",
-  "ports/feature_2": "0.1.0",
+  "ports/feature_2": "1.0.0",
   "ports/feature_3": "0.1.0"
 }
