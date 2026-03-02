@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/feature_2-v1.0.0...feature_2-v1.1.0) (2026-03-02)
+
+
+### Features
+
+* added some functionality to the feature ([#45](https://github.com/ThatTallGuy14/poc_automated_releases/issues/45)) ([847beeb](https://github.com/ThatTallGuy14/poc_automated_releases/commit/847beeb6ce1f0099bd1daa81258d43ffec9abe12))
+
 ## [1.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/feature_2-v0.1.0...feature_2-v1.0.0) (2026-03-02)
 
 
