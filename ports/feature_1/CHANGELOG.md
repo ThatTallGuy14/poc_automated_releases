@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ThatTallGuy14/poc_automated_releases/compare/feature_1-v1.0.0...feature_1-v1.0.1) (2026-03-03)
+
+
+### Bug Fixes
+
+* fixed some minor bug with the feature ([#44](https://github.com/ThatTallGuy14/poc_automated_releases/issues/44)) ([9372c2c](https://github.com/ThatTallGuy14/poc_automated_releases/commit/9372c2c613a670f1d411704d62ec70ee3acb0b36))
+
 ## [1.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/feature_1-v0.1.0...feature_1-v1.0.0) (2026-03-02)
 
 
