@@ -1,0 +1,11 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# Find hal-interface dependency
+find_dependency(hal-interface REQUIRED)
+
+# Include the targets file
+include("${CMAKE_CURRENT_LIST_DIR}/blinky-targets.cmake")
+
+check_required_components(blinky)
