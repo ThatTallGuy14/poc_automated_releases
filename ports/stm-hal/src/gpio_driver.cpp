@@ -3,6 +3,7 @@
 #include "stm32u0xx_hal.h"
 #include <map>
 
+// COMMENT
 // Storage for interrupt callbacks
 struct InterruptData {
   GPIOInterruptCallback callback;
