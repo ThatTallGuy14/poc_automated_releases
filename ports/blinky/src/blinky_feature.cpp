@@ -1,6 +1,7 @@
 #include "blinky/blinky_feature.hpp"
 
 // Implementation of BlinkyFeature methods
+// COMMENT
 
 BlinkyFeature::BlinkyFeature(I_GPIODriver& gpioDriver, const BlinkyConfig& config)
     : m_gpioDriver(gpioDriver), m_config(config), m_ledState(false), m_running(false) {
