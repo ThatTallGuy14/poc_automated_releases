@@ -4,45 +4,6 @@
   "include-v-in-tag": true,
   "tag-separator": "-",
   "packages": {
-    "ports/feature_1": {
-      "path": "ports/feature_1",
-      "changelog-path": "CHANGELOG.md",
-      "release-type": "simple",
-      "component": "feature_1",
-      "extra-files": [
-        {
-          "type": "json",
-          "path": "vcpkg.json",
-          "jsonpath": "$.version"
-        }
-      ]
-    },
-    "ports/feature_2": {
-      "path": "ports/feature_2",
-      "changelog-path": "CHANGELOG.md",
-      "release-type": "simple",
-      "component": "feature_2",
-      "extra-files": [
-        {
-          "type": "json",
-          "path": "vcpkg.json",
-          "jsonpath": "$.version"
-        }
-      ]
-    },
-    "ports/feature_3": {
-      "path": "ports/feature_3",
-      "changelog-path": "CHANGELOG.md",
-      "release-type": "simple",
-      "component": "feature_3",
-      "extra-files": [
-        {
-          "type": "json",
-          "path": "vcpkg.json",
-          "jsonpath": "$.version"
-        }
-      ]
-    },
     "ports/blinky": {
       "path": "ports/blinky",
       "changelog-path": "CHANGELOG.md",
@@ -56,11 +17,11 @@
         }
       ]
     },
-    "ports/hal_interface": {
-      "path": "ports/hal_interface",
+    "ports/hal-interface": {
+      "path": "ports/hal-interface",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
-      "component": "hal_interface",
+      "component": "hal-interface",
       "extra-files": [
         {
           "type": "json",
@@ -69,11 +30,11 @@
         }
       ]
     },
-    "ports/stm_hal": {
-      "path": "ports/stm_hal",
+    "ports/stm-hal": {
+      "path": "ports/stm-hal",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
-      "component": "stm_hal",
+      "component": "stm-hal",
       "extra-files": [
         {
           "type": "json",

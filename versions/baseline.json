@@ -4,30 +4,6 @@
       "baseline": "0.1.0",
       "port-version": 0
     },
-    "feature-1": {
-      "baseline": "0.1.0",
-      "port-version": 0
-    },
-    "feature-2": {
-      "baseline": "0.1.0",
-      "port-version": 0
-    },
-    "feature-3": {
-      "baseline": "0.1.0",
-      "port-version": 0
-    },
-    "feature_1": {
-      "baseline": "1.0.1",
-      "port-version": 0
-    },
-    "feature_2": {
-      "baseline": "1.0.0",
-      "port-version": 0
-    },
-    "feature_3": {
-      "baseline": "1.0.0",
-      "port-version": 0
-    },
     "hal-interface": {
       "baseline": "0.1.0",
       "port-version": 0

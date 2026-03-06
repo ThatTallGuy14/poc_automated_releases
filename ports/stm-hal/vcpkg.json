@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
-  "name": "blinky",
+  "name": "stm-hal",
   "version": "0.1.0",
-  "description": "Blinky feature library - LED control via button interrupt (HAL agnostic)",
+  "description": "STM32 HAL implementation for embedded GPIO, system control, and timing",
   "dependencies": [
     "hal-interface"
   ]

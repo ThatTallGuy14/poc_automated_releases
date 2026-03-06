@@ -13,7 +13,7 @@ Blinky is a **feature library**, not a standalone application:
 
 ## Features
 
-- **Hardware Agnostic**: Uses only `hal_interface` abstractions
+- **Hardware Agnostic**: Uses only `hal-interface` abstractions
 - **Interrupt Driven**: Button press handled via GPIO interrupts
 - **Configurable**: Flexible configuration structure
 - **Reusable**: Can instantiate multiple instances
@@ -57,8 +57,8 @@ Add to your firmware's `vcpkg.json`:
 ```json
 {
   "dependencies": [
-    "hal_interface",
-    "stm_hal", // Or your HAL implementation
+    "hal-interface",
+    "stm-hal", // Or your HAL implementation
     "blinky"
   ]
 }
@@ -169,8 +169,8 @@ int main() {
 
 ## Dependencies
 
-- `hal_interface` (required) - Abstract HAL interface
-- `stm_hal` (optional) - STM32 implementation, or provide your own
+- `hal-interface` (required) - Abstract HAL interface
+- `stm-hal` (optional) - STM32 implementation, or provide your own
 
 ## Hardware Requirements
 
