@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/stm-hal-v0.1.0...stm-hal-v1.0.0) (2026-03-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* MAJOR  BREAKING CHANGE ([#62](https://github.com/ThatTallGuy14/poc_automated_releases/issues/62))
+
+### Features
+
+* MAJOR  BREAKING CHANGE ([#62](https://github.com/ThatTallGuy14/poc_automated_releases/issues/62)) ([91a2125](https://github.com/ThatTallGuy14/poc_automated_releases/commit/91a212525ebefab8c6036c70fdc601928a46ba99))
+
 ## 0.1.0 (2026-03-06)
 
 
