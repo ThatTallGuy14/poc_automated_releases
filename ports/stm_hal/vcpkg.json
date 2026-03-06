@@ -3,5 +3,7 @@
   "name": "stm-hal",
   "version": "0.1.0",
   "description": "STM32 HAL implementation for embedded GPIO, system control, and timing",
-  "dependencies": ["hal-interface"]
+  "dependencies": [
+    "hal-interface"
+  ]
 }
