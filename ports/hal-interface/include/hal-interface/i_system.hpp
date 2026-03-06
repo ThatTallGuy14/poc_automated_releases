@@ -3,13 +3,6 @@
 
 #include <stdint.h>
 
-/**
- * @brief System initialization and control interface
- * 
- * Provides hardware-agnostic system initialization and control methods.
- * Implementations handle vendor-specific HAL initialization, clock
- * configuration, and system control functions.
- */
 class I_SystemDriver {
 public:
   I_SystemDriver() {}

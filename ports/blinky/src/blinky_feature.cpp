@@ -1,18 +1,3 @@
-/**
- * @file blinky_feature.cpp
- * @brief Blinky feature implementation - LED control via button interrupt
- * 
- * This provides a reusable blinky feature that can be integrated into
- * any firmware. It's hardware-agnostic and uses only HAL interfaces.
- * 
- * Features:
- * - Uses generic HAL interface (hal-interface)
- * - Hardware-agnostic design
- * - Interrupt-driven button handling
- * - Configurable LED and button pins
- * - Feature can be initialized and started by consumer firmware
- */
-
 #include "blinky/blinky_feature.hpp"
 
 // Implementation of BlinkyFeature methods
