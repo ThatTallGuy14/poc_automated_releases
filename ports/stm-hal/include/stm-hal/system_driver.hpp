@@ -4,9 +4,7 @@
 #include "stm32u0xx_hal.h"
 #include "hal-interface/i_system.hpp"
 
-/**
- * @brief STM32 implementation of system driver interface
- */
+
 class SystemDriver : public I_SystemDriver {
 public:
   SystemDriver() {}
