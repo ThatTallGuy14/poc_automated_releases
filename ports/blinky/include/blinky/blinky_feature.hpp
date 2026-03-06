@@ -1,8 +1,8 @@
 #ifndef BLINKY_FEATURE_HPP
 #define BLINKY_FEATURE_HPP
 
-#include "hal_interface/i_gpio.hpp"
-#include "hal_interface/i_generic.hpp"
+#include "hal-interface/i_gpio.hpp"
+#include "hal-interface/i_generic.hpp"
 #include "blinky/blinky_config.hpp"
 
 /**

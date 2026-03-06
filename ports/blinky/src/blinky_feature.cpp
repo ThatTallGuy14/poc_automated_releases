@@ -6,7 +6,7 @@
  * any firmware. It's hardware-agnostic and uses only HAL interfaces.
  * 
  * Features:
- * - Uses generic HAL interface (hal_interface)
+ * - Uses generic HAL interface (hal-interface)
  * - Hardware-agnostic design
  * - Interrupt-driven button handling
  * - Configurable LED and button pins

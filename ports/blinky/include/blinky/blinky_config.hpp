@@ -1,8 +1,8 @@
 #ifndef BLINKY_CONFIG_HPP
 #define BLINKY_CONFIG_HPP
 
-#include "hal_interface/i_generic.hpp"
-#include "hal_interface/i_gpio.hpp"
+#include "hal-interface/i_generic.hpp"
+#include "hal-interface/i_gpio.hpp"
 
 /**
  * @brief Configuration structure for the Blinky feature
