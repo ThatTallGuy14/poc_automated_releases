@@ -22,21 +22,19 @@ add_library(hal-interface::hal-interface ALIAS hal-interface)
 
 # Set include directories
 target_include_directories(
-  hal-interface
-  INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>)
+  hal-interface INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+                          $<INSTALL_INTERFACE:include>)
 
 # Install the library
-install(
-  TARGETS hal-interface
-  EXPORT hal-interface-targets)
+install(TARGETS hal-interface EXPORT hal-interface-targets)
 
 # Install headers - namespaced under hal_interface/
 install(
   DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/hal_interface
   DESTINATION include
-  FILES_MATCHING PATTERN "*.hpp" PATTERN "*.h")
+  FILES_MATCHING
+  PATTERN "*.hpp"
+  PATTERN "*.h")
 
 # Install export configuration
 install(

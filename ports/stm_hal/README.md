@@ -29,10 +29,12 @@ Concrete implementation of `I_GPIODriver`:
 ### Pin Mapping
 
 Pins are specified using the `PinID` structure:
+
 - `port`: 0=GPIOA, 1=GPIOB, 2=GPIOC, 3=GPIOD
 - `pin`: Pin number 0-15
 
 Example:
+
 ```cpp
 PinID led = {0, 5};  // PA5
 PinID button = {2, 13};  // PC13
@@ -44,10 +46,7 @@ Add to your `vcpkg.json`:
 
 ```json
 {
-  "dependencies": [
-    "hal_interface",
-    "stm_hal"
-  ]
+  "dependencies": ["hal_interface", "stm_hal"]
 }
 ```
 
@@ -57,7 +56,7 @@ In your CMakeLists.txt:
 find_package(hal_interface CONFIG REQUIRED)
 find_package(stm_hal CONFIG REQUIRED)
 
-target_link_libraries(your_target PRIVATE 
+target_link_libraries(your_target PRIVATE
     hal_interface::hal_interface
     stm_hal::stm_hal
 )
@@ -89,10 +88,12 @@ gpio.TogglePin({0, 5});
 ## C++20 Modules
 
 This implementation uses C++20 modules:
+
 - `GPIO_DRIVER` - Main GPIO driver module
 - `PIN_DRIVER` - Pin mapping utilities
 
 Import them in your code:
+
 ```cpp
 import GPIO_DRIVER;
 import PIN_DRIVER;

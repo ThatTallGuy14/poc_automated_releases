@@ -5,6 +5,7 @@ A hardware-agnostic interrupt-driven LED control feature library. This is a reus
 ## Architecture
 
 Blinky is a **feature library**, not a standalone application:
+
 - Provides `BlinkyFeature` class
 - Consumer firmware creates and initializes it
 - Uses dependency injection for HAL drivers
@@ -57,7 +58,7 @@ Add to your firmware's `vcpkg.json`:
 {
   "dependencies": [
     "hal_interface",
-    "stm_hal",      // Or your HAL implementation
+    "stm_hal", // Or your HAL implementation
     "blinky"
   ]
 }
@@ -75,15 +76,15 @@ int main() {
     SystemDriver sys;
     sys.Init();
     sys.ConfigureClock();
-    
+
     // Consumer initializes HAL drivers
     GPIODriver gpio;
     gpio.Init();
-    
+
     // Consumer creates and starts blinky feature
     BlinkyFeature blinky(gpio, DEFAULT_BLINKY_CONFIG);
     blinky.Start();
-    
+
     // Consumer's main loop
     while(1) {
         sys.Delay(100);
@@ -148,7 +149,7 @@ void MyButtonCallback(PinID pin, void* userData) {
 int main() {
     GPIODriver gpio;
     gpio.Init();
-    
+
     // Configure with custom callback
     GPIOConfig buttonConfig = {
         .pin = BUTTON_PIN,
@@ -159,7 +160,7 @@ int main() {
         .callbackUserData = nullptr
     };
     gpio.ConfigurePin(buttonConfig);
-    
+
     while(1) {
         // Your application logic
     }
@@ -181,6 +182,7 @@ int main() {
 ## Extending
 
 This application can be extended for:
+
 - Multiple buttons and LEDs
 - Different interrupt triggers (rising, falling, both)
 - Advanced debouncing logic
@@ -197,4 +199,3 @@ This application can be extended for:
 ## License
 
 See vcpkg.json for license information.
-  
