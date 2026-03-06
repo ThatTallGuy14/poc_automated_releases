@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/feature_1-v1.0.1...feature_1-v1.1.0) (2026-03-06)
+
+
+### Features
+
+* vcpkg test implementation ([#52](https://github.com/ThatTallGuy14/poc_automated_releases/issues/52)) ([e8333ac](https://github.com/ThatTallGuy14/poc_automated_releases/commit/e8333ac39f84507af7df4184d738e35cc514ded1))
+
 ## [1.0.1](https://github.com/ThatTallGuy14/poc_automated_releases/compare/feature_1-v1.0.0...feature_1-v1.0.1) (2026-03-03)
 
 
