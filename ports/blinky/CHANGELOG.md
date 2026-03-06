@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/blinky-v0.1.0...blinky-v1.0.0) (2026-03-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* MAJOR  BREAKING CHANGE ([#62](https://github.com/ThatTallGuy14/poc_automated_releases/issues/62))
+
+### Features
+
+* MAJOR  BREAKING CHANGE ([#62](https://github.com/ThatTallGuy14/poc_automated_releases/issues/62)) ([91a2125](https://github.com/ThatTallGuy14/poc_automated_releases/commit/91a212525ebefab8c6036c70fdc601928a46ba99))
+
+
+### Bug Fixes
+
+* blinky package caching cleanup ([#66](https://github.com/ThatTallGuy14/poc_automated_releases/issues/66)) ([844e0b8](https://github.com/ThatTallGuy14/poc_automated_releases/commit/844e0b889b36931dbabf3c910d8c9ce31623ae12))
+
 ## 0.1.0 (2026-03-06)
 
 
