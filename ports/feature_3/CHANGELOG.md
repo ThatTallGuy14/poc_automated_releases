@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/feature_3-v1.0.0...feature_3-v2.0.0) (2026-03-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* fixed a defect in the feature with one of the comments ([#47](https://github.com/ThatTallGuy14/poc_automated_releases/issues/47))
+
+### Features
+
+* vcpkg test implementation ([#52](https://github.com/ThatTallGuy14/poc_automated_releases/issues/52)) ([e8333ac](https://github.com/ThatTallGuy14/poc_automated_releases/commit/e8333ac39f84507af7df4184d738e35cc514ded1))
+
+
+### Bug Fixes
+
+* fixed a defect in the feature with one of the comments ([#47](https://github.com/ThatTallGuy14/poc_automated_releases/issues/47)) ([6b9440f](https://github.com/ThatTallGuy14/poc_automated_releases/commit/6b9440f5b62fa0faae75d46b05864d0d922854a7))
+* fixed some defect with feature 3 ([#50](https://github.com/ThatTallGuy14/poc_automated_releases/issues/50)) ([0d00c3e](https://github.com/ThatTallGuy14/poc_automated_releases/commit/0d00c3ee56f27138dfefa07c466f308a54f0f6ad))
+
 ## [1.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/feature_3-v0.1.0...feature_3-v1.0.0) (2026-03-02)
 
 
