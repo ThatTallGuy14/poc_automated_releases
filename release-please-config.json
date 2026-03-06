@@ -42,6 +42,45 @@
           "jsonpath": "$.version"
         }
       ]
+    },
+    "ports/blinky": {
+      "path": "ports/blinky",
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "simple",
+      "component": "blinky",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "vcpkg.json",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "ports/hal_interface": {
+      "path": "ports/hal_interface",
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "simple",
+      "component": "hal_interface",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "vcpkg.json",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "ports/stm_hal": {
+      "path": "ports/stm_hal",
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "simple",
+      "component": "stm_hal",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "vcpkg.json",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   }
 }
