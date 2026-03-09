@@ -1,5 +1,10 @@
 {
   "ports/hal-interface": "1.0.0",
+<<<<<<< release-please--branches--main--components--stm-hal
+  "ports/stm-hal": "2.0.1",
+  "ports/blinky": "2.0.0"
+=======
   "ports/stm-hal": "2.0.0",
   "ports/blinky": "2.0.1"
+>>>>>>> main
 }
