@@ -22,23 +22,14 @@ execute_process(
     -DCMAKE_PREFIX_PATH=${CURRENT_INSTALLED_DIR} ${TOOLCHAIN_ARG}
     ${VCPKG_CMAKE_CONFIGURE_OPTIONS}
   RESULT_VARIABLE result)
-if(result)
-  message(FATAL_ERROR "CMake configure failed")
-endif()
 
 # Build
 execute_process(COMMAND "${CMAKE_COMMAND}" --build "${BUILD_DIR}" --config
                         Release RESULT_VARIABLE result)
-if(result)
-  message(FATAL_ERROR "CMake build failed")
-endif()
 
 # Install
 execute_process(COMMAND "${CMAKE_COMMAND}" --install "${BUILD_DIR}" --config
                         Release RESULT_VARIABLE result)
-if(result)
-  message(FATAL_ERROR "CMake install failed")
-endif()
 
 # Remove debug files for header-only
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug")

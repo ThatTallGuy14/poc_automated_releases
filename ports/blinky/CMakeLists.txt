@@ -16,7 +16,6 @@ project(
   blinky
   VERSION 0.1.0
   LANGUAGES CXX)
-message("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Find the hal-interface dependency
 find_package(hal-interface CONFIG REQUIRED)
