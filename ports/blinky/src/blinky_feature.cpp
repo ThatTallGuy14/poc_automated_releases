@@ -27,9 +27,9 @@ void BlinkyFeature::Start() {
     };
     m_gpioDriver.ConfigurePin(ledConfig);
     
-    // Set initial LED state
-    m_ledState = false;
-    m_gpioDriver.SetPin(m_config.ledPin, GPIOPinState::Low);
+    // Set initial LED state to on so bring-up issues are easier to spot.
+    m_ledState = true;
+    m_gpioDriver.SetPin(m_config.ledPin, GPIOPinState::High);
     
     // Configure button pin as input with interrupt
     GPIOConfig buttonConfig = {
