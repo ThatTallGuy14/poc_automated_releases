@@ -12,7 +12,8 @@ STM32-specific implementation of the `hal-interface` for embedded GPIO and inter
 
 ## Supported Hardware
 
-- STM32U0xx family (STM32U031xx specifically)
+- STM32U0xx family (STM32U031xx and STM32U083xx)
+- NUCLEO-U083RC board profile via vcpkg feature `nucleo-u083rc`
 - Easily adaptable to other STM32 families
 
 ## Implementation Details
@@ -44,11 +45,26 @@ PinID button = {2, 13};  // PC13
 
 Add to your `vcpkg.json`:
 
-```json
+````json
 {
   "dependencies": ["hal-interface", "stm-hal"]
 }
-```
+
+To target NUCLEO-U083RC explicitly:
+
+```json
+{
+  "dependencies": [
+    {
+      "name": "stm-hal",
+      "default-features": false,
+      "features": ["nucleo-u083rc"]
+    }
+  ]
+}
+````
+
+````
 
 In your CMakeLists.txt:
 
@@ -60,7 +76,7 @@ target_link_libraries(your_target PRIVATE
     hal-interface::hal-interface
     stm-hal::stm-hal
 )
-```
+````
 
 ## Example Usage
 

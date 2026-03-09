@@ -9,6 +9,8 @@ struct InterruptData {
   GPIOInterruptCallback callback;
   void* userData;
   PinID pin;
+  GPIOInterruptTrigger trigger;
+  uint32_t lastTriggerTick;
 };
 
 // Map to store interrupt handlers for each pin
@@ -74,6 +76,8 @@ void GPIODriver::ConfigurePin(const GPIOConfig& config) {
     data.callback = config.callback;
     data.userData = config.callbackUserData;
     data.pin = config.pin;
+    data.trigger = config.interruptTrigger;
+    data.lastTriggerTick = 0;
     g_interruptHandlers[config.pin.pin] = data;
     
     // Enable the EXTI interrupt
@@ -129,8 +133,9 @@ IRQn_Type GPIODriver::GetIRQn(uint8_t pinNumber) {
   }
 }
 
-// EXTI interrupt handler helper
-extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+// Shared EXTI callback handler used by both rising and falling HAL hooks.
+static void HandleExtiCallback(uint16_t GPIO_Pin, GPIOInterruptTrigger edgeTrigger) {
+
   // Find the pin number from the pin mask
   uint8_t pinNumber = 0;
   uint16_t mask = GPIO_Pin;
@@ -142,6 +147,48 @@ extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
   // Call the registered callback
   auto it = g_interruptHandlers.find(pinNumber);
   if (it != g_interruptHandlers.end()) {
+    const bool edgeMatchesTrigger =
+      (it->second.trigger == GPIOInterruptTrigger::BothEdges) ||
+      (it->second.trigger == edgeTrigger);
+
+    if (!edgeMatchesTrigger) {
+      return;
+    }
+
+
     it->second.callback(it->second.pin, it->second.userData);
   }
+}
+
+extern "C" void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin) {
+  HandleExtiCallback(GPIO_Pin, GPIOInterruptTrigger::RisingEdge);
+}
+
+extern "C" void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin) {
+  HandleExtiCallback(GPIO_Pin, GPIOInterruptTrigger::FallingEdge);
+}
+
+extern "C" void EXTI0_1_IRQHandler(void) {
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
+}
+
+extern "C" void EXTI2_3_IRQHandler(void) {
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
+}
+
+extern "C" void EXTI4_15_IRQHandler(void) {
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_9);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_12);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
 }

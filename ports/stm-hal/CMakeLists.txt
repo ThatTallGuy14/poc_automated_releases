@@ -26,8 +26,9 @@ set(CMAKE_PROJECT_NAME stm-hal)
 # Select which generated STM32 SKU tree to build against.
 set(STM_HAL_SKU
     "STM32U031"
-    CACHE STRING "STM HAL SKU (STM32U031 or STM32U083)")
-set_property(CACHE STM_HAL_SKU PROPERTY STRINGS STM32U031 STM32U083)
+    CACHE STRING "STM HAL SKU (STM32U031, STM32U083, or NUCLEO-U083RC)")
+set_property(CACHE STM_HAL_SKU PROPERTY STRINGS STM32U031 STM32U083
+                                        NUCLEO-U083RC)
 string(TOUPPER "${STM_HAL_SKU}" STM_HAL_SKU)
 
 if(STM_HAL_SKU STREQUAL "STM32U031")
@@ -42,10 +43,16 @@ elseif(STM_HAL_SKU STREQUAL "STM32U083")
   set(STM_HAL_LINKER_SCRIPT_FLASH_NAME "STM32U083xx_FLASH.ld")
   set(STM_HAL_LINKER_SCRIPT_RAM_NAME "STM32U083xx_RAM.ld")
   set(STM_HAL_STARTUP_FILE_NAME "startup_stm32u083xx.s")
+elseif(STM_HAL_SKU STREQUAL "NUCLEO-U083RC")
+  set(STM_HAL_DEVICE_DEFINE "STM32U083xx")
+  set(STM_HAL_TARGET_MCU "NUCLEO-U083RC (STM32U083 Cortex-M0+)")
+  set(STM_HAL_LINKER_SCRIPT_FLASH_NAME "STM32U083xx_FLASH.ld")
+  set(STM_HAL_LINKER_SCRIPT_RAM_NAME "STM32U083xx_RAM.ld")
+  set(STM_HAL_STARTUP_FILE_NAME "startup_stm32u083xx.s")
 else()
   message(
     FATAL_ERROR
-      "Unsupported STM_HAL_SKU='${STM_HAL_SKU}'. Expected STM32U031 or STM32U083."
+      "Unsupported STM_HAL_SKU='${STM_HAL_SKU}'. Expected STM32U031, STM32U083, or NUCLEO-U083RC."
   )
 endif()
 
@@ -53,6 +60,16 @@ set(STM_HAL_SKU_DIR "${CMAKE_CURRENT_SOURCE_DIR}/skus/${STM_HAL_SKU}")
 if(NOT EXISTS "${STM_HAL_SKU_DIR}")
   message(
     FATAL_ERROR "Selected SKU directory does not exist: ${STM_HAL_SKU_DIR}")
+endif()
+
+# Keep IRQ and system integration aligned with the wrapper drivers.
+set(STM_HAL_CORE_SOURCE_DIR "${STM_HAL_SKU_DIR}/Core/Src")
+set(STM_HAL_CORE_INCLUDE_DIR "${STM_HAL_SKU_DIR}/Core/Inc")
+if(STM_HAL_SKU STREQUAL "NUCLEO-U083RC")
+  set(STM_HAL_CORE_SOURCE_DIR
+      "${CMAKE_CURRENT_SOURCE_DIR}/skus/STM32U083/Core/Src")
+  set(STM_HAL_CORE_INCLUDE_DIR
+      "${CMAKE_CURRENT_SOURCE_DIR}/skus/STM32U083/Core/Inc")
 endif()
 
 # NOTE: Toolchain file should be provided externally via CMAKE_TOOLCHAIN_FILE
@@ -92,9 +109,9 @@ set(STM32_HAL_SOURCES
     ${STM_HAL_SKU_DIR}/Drivers/STM32U0xx_HAL_Driver/Src/stm32u0xx_hal_pwr_ex.c
     ${STM_HAL_SKU_DIR}/Drivers/STM32U0xx_HAL_Driver/Src/stm32u0xx_hal_rcc.c
     ${STM_HAL_SKU_DIR}/Drivers/STM32U0xx_HAL_Driver/Src/stm32u0xx_hal_rcc_ex.c
-    ${STM_HAL_SKU_DIR}/Core/Src/stm32u0xx_it.c
-    ${STM_HAL_SKU_DIR}/Core/Src/stm32u0xx_hal_msp.c
-    ${STM_HAL_SKU_DIR}/Core/Src/system_stm32u0xx.c)
+    ${STM_HAL_CORE_SOURCE_DIR}/stm32u0xx_it.c
+    ${STM_HAL_CORE_SOURCE_DIR}/stm32u0xx_hal_msp.c
+    ${STM_HAL_CORE_SOURCE_DIR}/system_stm32u0xx.c)
 
 # Apollo wrapper driver sources
 file(GLOB_RECURSE APOLLO_DRIVER_SOURCES "src/*.cpp" "src/*.c")
@@ -118,7 +135,7 @@ target_include_directories(
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
          $<INSTALL_INTERFACE:include>
   PRIVATE ${STM_HAL_SKU_DIR}/Drivers/STM32U0xx_HAL_Driver/Inc
-          ${STM_HAL_SKU_DIR}/Core/Inc
+          ${STM_HAL_CORE_INCLUDE_DIR}
           ${STM_HAL_SKU_DIR}/Drivers/STM32U0xx_HAL_Driver/Inc/Legacy
           ${STM_HAL_SKU_DIR}/Drivers/CMSIS/Device/ST/STM32U0xx/Include
           ${STM_HAL_SKU_DIR}/Drivers/CMSIS/Include)
@@ -164,7 +181,7 @@ install(
   PATTERN "*.h")
 
 install(
-  DIRECTORY ${STM_HAL_SKU_DIR}/Core/Inc/
+  DIRECTORY ${STM_HAL_CORE_INCLUDE_DIR}/
   DESTINATION include
   FILES_MATCHING
   PATTERN "*.h")

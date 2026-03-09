@@ -3,18 +3,17 @@
   "name": "stm-hal",
   "version": "2.0.0",
   "description": "STM32 HAL implementation for embedded GPIO, system control, and timing",
-  "dependencies": [
-    "hal-interface"
-  ],
-  "default-features": [
-    "stm32u031"
-  ],
+  "dependencies": ["hal-interface"],
+  "default-features": ["stm32u031"],
   "features": {
     "stm32u031": {
       "description": "Build stm-hal for STM32U031xx"
     },
     "stm32u083": {
       "description": "Build stm-hal for STM32U083xx"
+    },
+    "nucleo-u083rc": {
+      "description": "Build stm-hal for NUCLEO-U083RC board (STM32U083xx)"
     }
   }
 }

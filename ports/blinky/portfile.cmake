@@ -1,40 +1,40 @@
-# Configure and build using CMake directly
-set(SOURCE_PATH "${CMAKE_CURRENT_LIST_DIR}")
-set(BUILD_DIR "${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-rel")
+set(SOURCE_PATH "${CURRENT_PORT_DIR}")
 
-# Determine generator based on target
+vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
+
+set(BLINKY_CMAKE_OPTIONS)
 if(VCPKG_CMAKE_SYSTEM_NAME STREQUAL "Generic")
-  set(GENERATOR_ARG -G "Ninja")
-  set(TOOLCHAIN_ARG -DCMAKE_TOOLCHAIN_FILE=${VCPKG_CHAINLOAD_TOOLCHAIN_FILE})
-else()
-  set(GENERATOR_ARG "")
-  set(TOOLCHAIN_ARG "")
+  list(APPEND BLINKY_CMAKE_OPTIONS
+       "-DCMAKE_TOOLCHAIN_FILE=${VCPKG_CHAINLOAD_TOOLCHAIN_FILE}")
 endif()
 
-# Avoid stale CMake cache when registry git-tree paths change.
-file(REMOVE_RECURSE "${BUILD_DIR}")
+if(COMMAND vcpkg_cmake_configure)
+  vcpkg_cmake_configure(
+    SOURCE_PATH "${SOURCE_PATH}" OPTIONS -DCMAKE_CXX_SCAN_FOR_MODULES=OFF
+    ${BLINKY_CMAKE_OPTIONS} ${VCPKG_CMAKE_CONFIGURE_OPTIONS})
 
-# Run CMake configure
-execute_process(
-  COMMAND
-    "${CMAKE_COMMAND}" ${GENERATOR_ARG} -S "${SOURCE_PATH}" -B "${BUILD_DIR}"
-    -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${CURRENT_PACKAGES_DIR}
-    -DCMAKE_PREFIX_PATH=${CURRENT_INSTALLED_DIR} ${TOOLCHAIN_ARG}
-    ${VCPKG_CMAKE_CONFIGURE_OPTIONS}
-  RESULT_VARIABLE result)
+  vcpkg_cmake_install()
+  vcpkg_cmake_config_fixup(PACKAGE_NAME blinky CONFIG_PATH share/blinky)
+elseif(COMMAND vcpkg_configure_cmake)
+  vcpkg_configure_cmake(
+    SOURCE_PATH
+    "${SOURCE_PATH}"
+    PREFER_NINJA
+    OPTIONS
+    -DCMAKE_CXX_SCAN_FOR_MODULES=OFF
+    ${BLINKY_CMAKE_OPTIONS}
+    ${VCPKG_CMAKE_CONFIGURE_OPTIONS})
 
-# Build
-execute_process(COMMAND "${CMAKE_COMMAND}" --build "${BUILD_DIR}" --config
-                        Release RESULT_VARIABLE result)
+  vcpkg_install_cmake()
+  vcpkg_fixup_cmake_targets(CONFIG_PATH share/blinky)
+else()
+  message(FATAL_ERROR "No supported vcpkg CMake helper found for blinky port.")
+endif()
 
-# Install
-execute_process(COMMAND "${CMAKE_COMMAND}" --install "${BUILD_DIR}" --config
-                        Release RESULT_VARIABLE result)
+# Keep only one copy of headers/CMake metadata in the package root.
+file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
+file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/share")
 
-# Remove debug files for header-only
-file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug")
-
-# Install copyright
 file(
   INSTALL "${SOURCE_PATH}/vcpkg.json"
   DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}"
