@@ -25,24 +25,26 @@ endif()
 
 if(COMMAND vcpkg_cmake_configure)
   vcpkg_cmake_configure(
-    SOURCE_PATH "${SOURCE_PATH}"
+    SOURCE_PATH
+    "${SOURCE_PATH}"
     OPTIONS
-      -DCMAKE_CXX_SCAN_FOR_MODULES=OFF
-      -DSTM_HAL_SKU=${STM_HAL_SKU}
-      ${STM_HAL_CMAKE_OPTIONS}
-      ${VCPKG_CMAKE_CONFIGURE_OPTIONS})
+    -DCMAKE_CXX_SCAN_FOR_MODULES=OFF
+    -DSTM_HAL_SKU=${STM_HAL_SKU}
+    ${STM_HAL_CMAKE_OPTIONS}
+    ${VCPKG_CMAKE_CONFIGURE_OPTIONS})
 
   vcpkg_cmake_install()
   vcpkg_cmake_config_fixup(PACKAGE_NAME stm-hal CONFIG_PATH share/stm-hal)
 elseif(COMMAND vcpkg_configure_cmake)
   vcpkg_configure_cmake(
-    SOURCE_PATH "${SOURCE_PATH}"
+    SOURCE_PATH
+    "${SOURCE_PATH}"
     PREFER_NINJA
     OPTIONS
-      -DCMAKE_CXX_SCAN_FOR_MODULES=OFF
-      -DSTM_HAL_SKU=${STM_HAL_SKU}
-      ${STM_HAL_CMAKE_OPTIONS}
-      ${VCPKG_CMAKE_CONFIGURE_OPTIONS})
+    -DCMAKE_CXX_SCAN_FOR_MODULES=OFF
+    -DSTM_HAL_SKU=${STM_HAL_SKU}
+    ${STM_HAL_CMAKE_OPTIONS}
+    ${VCPKG_CMAKE_CONFIGURE_OPTIONS})
 
   vcpkg_install_cmake()
   vcpkg_fixup_cmake_targets(CONFIG_PATH share/stm-hal)
