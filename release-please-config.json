@@ -4,11 +4,11 @@
   "include-v-in-tag": true,
   "tag-separator": "-",
   "packages": {
-    "ports/feature_1": {
-      "path": "ports/feature_1",
+    "ports/blinky": {
+      "path": "ports/blinky",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
-      "component": "feature_1",
+      "component": "blinky",
       "extra-files": [
         {
           "type": "json",
@@ -17,11 +17,11 @@
         }
       ]
     },
-    "ports/feature_2": {
-      "path": "ports/feature_2",
+    "ports/hal-interface": {
+      "path": "ports/hal-interface",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
-      "component": "feature_2",
+      "component": "hal-interface",
       "extra-files": [
         {
           "type": "json",
@@ -30,11 +30,11 @@
         }
       ]
     },
-    "ports/feature_3": {
-      "path": "ports/feature_3",
+    "ports/stm-hal": {
+      "path": "ports/stm-hal",
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
-      "component": "feature_3",
+      "component": "stm-hal",
       "extra-files": [
         {
           "type": "json",

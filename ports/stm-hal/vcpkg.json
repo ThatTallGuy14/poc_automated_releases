@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "stm-hal",
+  "version": "1.0.0",
+  "description": "STM32 HAL implementation for embedded GPIO, system control, and timing",
+  "dependencies": [
+    "hal-interface"
+  ]
+}
