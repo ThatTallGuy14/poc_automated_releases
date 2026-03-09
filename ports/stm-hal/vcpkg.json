@@ -10,14 +10,14 @@
     "stm32u031"
   ],
   "features": {
+    "nucleo-u083rc": {
+      "description": "Build stm-hal for NUCLEO-U083RC board (STM32U083xx)"
+    },
     "stm32u031": {
       "description": "Build stm-hal for STM32U031xx"
     },
     "stm32u083": {
       "description": "Build stm-hal for STM32U083xx"
-    },
-    "nucleo-u083rc": {
-      "description": "Build stm-hal for NUCLEO-U083RC board (STM32U083xx)"
     }
   }
 }
