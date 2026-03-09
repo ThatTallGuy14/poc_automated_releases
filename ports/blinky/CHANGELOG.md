@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/blinky-v1.0.0...blinky-v2.0.0) (2026-03-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* multiple skus for the HAL
+
+### Features
+
+* multiple skus for the HAL ([7b66072](https://github.com/ThatTallGuy14/poc_automated_releases/commit/7b66072e44bb957e91d253b6ad12e80a710c316e))
+
 ## [1.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/blinky-v0.1.0...blinky-v1.0.0) (2026-03-06)
 
 
