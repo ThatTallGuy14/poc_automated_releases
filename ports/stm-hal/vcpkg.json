@@ -3,7 +3,12 @@
   "name": "stm-hal",
   "version": "1.0.0",
   "description": "STM32 HAL implementation for embedded GPIO, system control, and timing",
-  "default-features": ["stm32u031"],
+  "dependencies": [
+    "hal-interface"
+  ],
+  "default-features": [
+    "stm32u031"
+  ],
   "features": {
     "stm32u031": {
       "description": "Build stm-hal for STM32U031xx"
@@ -11,6 +16,5 @@
     "stm32u083": {
       "description": "Build stm-hal for STM32U083xx"
     }
-  },
-  "dependencies": ["hal-interface"]
+  }
 }
