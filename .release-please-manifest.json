@@ -1,5 +1,5 @@
 {
   "ports/hal-interface": "1.0.0",
-  "ports/blinky": "1.0.0",
-  "ports/stm-hal": "1.0.0"
+  "ports/stm-hal": "2.0.0",
+  "ports/blinky": "2.0.0"
 }
