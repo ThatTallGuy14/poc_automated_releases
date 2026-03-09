@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/stm-hal-v1.0.0...stm-hal-v2.0.0) (2026-03-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* multiple skus for the HAL
+
+### Features
+
+* multiple skus for the HAL ([7b66072](https://github.com/ThatTallGuy14/poc_automated_releases/commit/7b66072e44bb957e91d253b6ad12e80a710c316e))
+
+
+### Bug Fixes
+
+* vcpkg formatting ([#70](https://github.com/ThatTallGuy14/poc_automated_releases/issues/70)) ([f8d6c1d](https://github.com/ThatTallGuy14/poc_automated_releases/commit/f8d6c1d03933eab08b4dc05ce04d89b1e357a128))
+
 ## [1.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/stm-hal-v0.1.0...stm-hal-v1.0.0) (2026-03-06)
 
 
