@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/ThatTallGuy14/poc_automated_releases/compare/blinky-v2.0.0...blinky-v2.0.1) (2026-03-09)
+
+
+### Bug Fixes
+
+* make blinky work ([0574ae3](https://github.com/ThatTallGuy14/poc_automated_releases/commit/0574ae32f74cf3ba0118c96b46856a366e4b1788))
+
 ## [2.0.0](https://github.com/ThatTallGuy14/poc_automated_releases/compare/blinky-v1.0.0...blinky-v2.0.0) (2026-03-09)
 
 
